@@ -503,15 +503,15 @@ function quitarTildes(str) {
       // Móvil pequeño - letras mucho más pequeñas y separadas
       letraW = 8 * 0.8; // Más pequeñas para móviles muy pequeños
       letraH = 16 * 0.8;
-      esp = 40 * 0.8; // reducir espaciado
-      espPalabra = 50 * 0.8;
+      esp = 60 * 0.8; // reducir espaciado
+      espPalabra = 60 * 0.8;
       corazonScale = 0.5; 
     } else if (isMobile) {
       // Móvil - letras más pequeñas y separadas
       letraW = 12 * 0.8; // Reducidas para móviles
       letraH = 24 * 0.8;
-      esp = 45 * 0.8;
-      espPalabra = 55 * 0.8;
+      esp = 65 * 0.8;
+      espPalabra = 65 * 0.8;
       corazonScale = 0.6;
     } else {
       // Desktop - NO TOCAR
