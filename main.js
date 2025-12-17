@@ -598,19 +598,27 @@ function quitarTildes(str) {
     // Add a third line with 'TQM ♥' below the existing lines
     // Tercera línea: puede ir al final del nombre (misma línea) o debajo de la segunda línea
     const terceraLinea = 'TQM ♥';
-    // Más espacio al final y entre letras para que "TQM ♥" quede más separado
     let terceraLineaWidth = 0;
     let terceraLineaLetterCount = 0;
-    const extraEndSpacing = 30; // espacio extra al final en px
-    const extraGapBetween = 12;  // espacio extra entre letras en px
 
+    // Calcular anchura real usando getLetterWidth y los espacios de palabra
     for (let i = 0; i < terceraLinea.length; i++) {
       const ch = terceraLinea[i];
+      if (ch === ' ') {
+      terceraLineaWidth += espPalabra;
+      } else {
       terceraLineaWidth += getLetterWidth(ch);
+      }
       terceraLineaLetterCount++;
     }
-    terceraLineaWidth += (terceraLineaLetterCount - 1) * (esp + extraGapBetween);
-    terceraLineaWidth += extraEndSpacing;
+    if (terceraLineaLetterCount > 1) {
+      terceraLineaWidth += (terceraLineaLetterCount - 1) * esp;
+    }
+
+    // Pequeña corrección visual para centrar mejor el corazón (si existe)
+    if (terceraLinea.includes('♥')) {
+      terceraLineaWidth -= Math.round(corazonWidth * 0.05);
+    }
     // Calcular ancho y posición del nombre (segunda línea) para decidir si se anexa al final
     let nombreWidthForCenter = 0;
     let nombreLetterCount = 0;
