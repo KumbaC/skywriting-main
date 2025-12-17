@@ -503,8 +503,8 @@ function quitarTildes(str) {
       // Móvil pequeño - letras mucho más pequeñas y separadas
       letraW = 8 * 0.8; // Más pequeñas para móviles muy pequeños
       letraH = 16 * 0.8;
-      esp = 60 * 0.8; // reducir espaciado
-      espPalabra = 60 * 0.8;
+      esp = 70 * 0.8; // reducir espaciado
+      espPalabra = 70 * 0.8;
       corazonScale = 0.5; 
     } else if (isMobile) {
       // Móvil - letras más pequeñas y separadas
