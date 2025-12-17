@@ -31,17 +31,17 @@ function quitarTildes(str) {
     const isMobile = window.innerWidth <= 768;
 
     if (isSmallMobile) {
-        letraW = 10 * scaleFactor; // Smaller letters for very small screens
-        letraH = 20 * scaleFactor;
-        esp = 55 * scaleFactor;
-        espPalabra = 65 * scaleFactor;
-        corazonScale = 0.6 * scaleFactor;
+      letraW = 8 * scaleFactor; // Más pequeñas para móviles muy pequeños
+      letraH = 16 * scaleFactor;
+      esp = 40 * scaleFactor;
+      espPalabra = 50 * scaleFactor;
+      corazonScale = 0.5 * scaleFactor;
     } else if (isMobile) {
-        letraW = 14 * scaleFactor; // Medium letters for mobile
-        letraH = 28 * scaleFactor;
-        esp = 60 * scaleFactor;
-        espPalabra = 70 * scaleFactor;
-        corazonScale = 0.7 * scaleFactor;
+      letraW = 12 * scaleFactor; // Reducidas para móviles
+      letraH = 24 * scaleFactor;
+      esp = 45 * scaleFactor;
+      espPalabra = 55 * scaleFactor;
+      corazonScale = 0.6 * scaleFactor;
     } else {
         letraW = 38 * scaleFactor; // Default for larger screens
         letraH = 80 * scaleFactor;
@@ -501,18 +501,18 @@ function quitarTildes(str) {
     
     if (isSmallMobile) {
       // Móvil pequeño - letras mucho más pequeñas y separadas
-      letraW = 10*0.8; // Reducido de 12 a 10
-      letraH = 20*0.8; // Reducido de 24 a 20
-      esp = 55*0.8; // Más espacio entre letras (aumentado de 45 a 55)
-      espPalabra = 65*0.8; // Más espacio entre palabras
-      corazonScale = 0.6; // Corazón más grande (aumentado de 0.4 a 0.6)
+      letraW = 8 * 0.8; // Más pequeñas para móviles muy pequeños
+      letraH = 16 * 0.8;
+      esp = 40 * 0.8; // reducir espaciado
+      espPalabra = 50 * 0.8;
+      corazonScale = 0.5; 
     } else if (isMobile) {
       // Móvil - letras más pequeñas y separadas
-      letraW = 14*0.8; // Reducido de 16 a 14
-      letraH = 28*0.8; // Reducido de 32 a 28
-      esp = 60*0.8; // Más espacio entre letras (aumentado de 50 a 60)
-      espPalabra = 70*0.8; // Más espacio entre palabras
-      corazonScale = 0.7; // Corazón más grande (aumentado de 0.5 a 0.7)
+      letraW = 12 * 0.8; // Reducidas para móviles
+      letraH = 24 * 0.8;
+      esp = 45 * 0.8;
+      espPalabra = 55 * 0.8;
+      corazonScale = 0.6;
     } else {
       // Desktop - NO TOCAR
       letraW = 38*0.8;
@@ -521,6 +521,9 @@ function quitarTildes(str) {
       espPalabra = 48*0.8;
       corazonScale = 1.1;
     }
+    // Escala real de las letras respecto al diseño base (38x80)
+    const letterScaleX = letraW / 38;
+    const letterScaleY = letraH / 80;
     
     // Construir mensaje según el dispositivo
     let mensaje, segundaLinea;
@@ -550,7 +553,7 @@ function quitarTildes(str) {
         const segMaxX = Math.max(...seg.map(([px, _]) => px));
         if (segMaxX > maxX) maxX = segMaxX;
       }
-      return maxX * 0.8;
+      return maxX * letterScaleX;
     }
     
     // Calcular el ancho total del mensaje completo para centrarlo
